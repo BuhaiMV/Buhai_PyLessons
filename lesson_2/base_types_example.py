@@ -47,3 +47,6 @@ print(full_name[3:6:2])
 food = 'solvanka'
 price = 90
 print(f'Food is {food} and price is {price}')
+input_value = input()
+int_value = int()
+print(input_value)
