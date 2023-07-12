@@ -11,5 +11,5 @@ print(is_number_checker(5))
 # 3
 list_three = [7, 8, 9, 10, 11]
 list_four = [7, 8, 9]
-max_min_list_finder = lambda *lists: print(f'max lis: {max(lists, key=len)}\nmin list: {min(lists, key=len)}')
+max_min_list_finder = lambda *lists: print(f'max list: {max(lists, key=len)}\nmin list: {min(lists, key=len)}')
 max_min_list_finder(list_one, list_two, list_three, list_four)
