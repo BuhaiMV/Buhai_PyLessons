@@ -5,7 +5,7 @@ list_of_intersection = lambda first_list, second_list: list(set(first_list).inte
 print(list_of_intersection(list_one, list_two))
 
 # 2
-is_number_checker = lambda value: value.isnumeric()
+is_number_checker = lambda value: value.isnumeric() if type(value) == str else "not a string"
 print(is_number_checker('5'))
 
 # 3
