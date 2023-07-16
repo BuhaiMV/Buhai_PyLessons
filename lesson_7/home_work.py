@@ -22,9 +22,12 @@ def delete_inside_brackets(list_of_values):
 
 delete_inside_brackets(list_for_delete)
 print(list_for_delete)
-#3
+
+
+# 3
 def insert_space(string):
     string = re.sub('([A-Z])', r' \1', string)
     return string
+
 
 print(insert_space('aAbZs'))
