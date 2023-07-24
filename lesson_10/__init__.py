@@ -1,0 +1,1 @@
+from .home_work_library1 import print_text_to_console, add_ten_to_number
