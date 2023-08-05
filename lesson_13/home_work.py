@@ -7,9 +7,9 @@ class Car(ABC):
         self.color = color
         self.fuel_type = fuel_type
 
-        @abstractmethod
-        def refuel(self):
-            pass
+    @abstractmethod
+    def refuel(self):
+        pass
 
 
 class Electro(Car):
