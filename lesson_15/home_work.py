@@ -1,6 +1,9 @@
+import random
+some_names = ['Tom', 'James', 'Anna', 'Vi', 'Liza']
 class Train:
     def __init__(self):
         self.train_cars = ['Locomotive']
+        self.route = ['Edinburgh', 'London', 'Manchester', 'Birmingham', 'Liverpool', 'Glasgow']
 
     def __add__(self, other):
         self.train_cars.append(other)
@@ -18,8 +21,18 @@ class Train:
                     self.train_cars[train_car].leave_passenger(passenger-1)
 
     def new_passenger(self, name_value, destination_value, train_car_number, place):
-        print(f'To train coming passenger, they have {place} place in train car №{train_car_number}, his name:  {name_value}, ')
+        print(f'To train coming new passenger, they have {place} place in train car №{train_car_number}, his name:  {name_value}, travel to {destination_value}')
         self.train_cars[train_car_number].add_passenger(name_value, destination_value, place)
+
+    def travel_from_to(self, start_station, finish_station):
+        start = self.route.index(start_station)
+        finish = self.route.index(finish_station)
+        for i in range(finish-start):
+            print(f'Welcome in {self.route[i+start+1]}')
+            self.travel_to(self.route[i+start+1])
+            train_car_number = random.randint(1, len(self.train_cars)-1)
+            self.new_passenger(some_names[random.randint(0, len(some_names)-1)], self.route[random.randint(i+start+1, len(self.route)-1)], train_car_number, len(self.train_cars[train_car_number])+1)
+
 
 
 
@@ -60,9 +73,7 @@ train + train_car2
 print(len(train))
 print(len(train_car1))
 print(train.train_cars[1])
-train.travel_to('London')
-print(train.train_cars[1])
-train.new_passenger('Tom', 'Liverpool', 1, 1)
+train.travel_from_to('Edinburgh', 'Liverpool')
 print(train.train_cars[1])
 print(train.train_cars[2])
 
