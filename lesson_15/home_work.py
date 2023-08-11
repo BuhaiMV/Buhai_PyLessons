@@ -14,9 +14,11 @@ class Train:
                 continue
             for passenger in range(len(self.train_cars[train_car])):
                 if self.train_cars[train_car][passenger]["destination"] == station:
-                    self.train_cars[train_car].passengers.pop(passenger-1)
+                    print(f'train leave passenger from train car: {train_car}, his name: {self.train_cars[train_car][passenger]["name"]}')
+                    self.train_cars[train_car].leave_passenger(passenger-1)
 
     def new_passenger(self, name_value, destination_value, train_car_number, place):
+        print(f'To train coming passenger, they have {place} place in train car №{train_car_number}, his name:  {name_value}, ')
         self.train_cars[train_car_number].add_passenger(name_value, destination_value, place)
 
 
@@ -29,6 +31,9 @@ class TrainCar:
     def add_passenger(self, name_value, destination_value, place):
         self.passengers.append(
             {'name': name_value, 'destination': destination_value, 'place': place})
+
+    def leave_passenger(self, value):
+        self.passengers.pop(value)
 
     def __getitem__(self, item):
         return self.passengers[item - 1]
