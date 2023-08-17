@@ -1,3 +1,4 @@
+# 2
 from lesson_17.home_work.home_work_test.adapter_for_test import CsvManager
 
 class TestManager:
