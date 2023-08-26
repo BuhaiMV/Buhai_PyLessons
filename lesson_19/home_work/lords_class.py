@@ -58,5 +58,5 @@ class Lords:
         assert element.text == value
 
     def check_search_result_contain_text(self, value):
-        time.sleep(5)
+        self.driver.implicitly_wait(5)
         assert value in self.find_search_result().text
