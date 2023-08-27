@@ -1,11 +1,11 @@
 from selenium.webdriver import Chrome
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
-import time
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class Lords:
     driver = Chrome()
+    web_driver_wait = WebDriverWait(driver, 5)
 
     first_element_in_menu_locator = '//div[@class="products-menu__title"]'
     second_element_in_menu_locator = '//li[@class="products-menu__item j-submenu-item"][2]'
@@ -38,7 +38,7 @@ class Lords:
         return search
 
     def find_search_result(self):
-        search_result = self.driver.find_element(by='xpath', value=self.search_result_locator)
+        search_result = self.web_driver_wait.until(EC.presence_of_element_located(('xpath', self.search_result_locator)))
         return search_result
 
     def click_first_element_in_menu(self):
@@ -58,5 +58,4 @@ class Lords:
         assert element.text == value
 
     def check_search_result_contain_text(self, value):
-        self.driver.implicitly_wait(5)
         assert value in self.find_search_result().text
