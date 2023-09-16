@@ -8,3 +8,5 @@ class PeopleService:
 
     def get_people(self, people_id) -> Response:
         return get(f"{self.__people_url}/{people_id}")
+
+    

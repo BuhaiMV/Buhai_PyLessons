@@ -1,10 +1,10 @@
-def test_test_planet(planetService):
-    response = planetService.get_value("1", "name")
+def test_test_planet(planet_service):
+    response = planet_service.get_value("1", "name")
     assert response == 'Tatooine'
 
 
-def test_go_to_page(planetService):
-    response = planetService.go_to_page("2")
+def test_go_to_page(planet_service):
+    response = planet_service.go_to_page("2")
     assert response.json() == {
     "count": 60,
     "next": "https://swapi.dev/api/planets/?page=3",

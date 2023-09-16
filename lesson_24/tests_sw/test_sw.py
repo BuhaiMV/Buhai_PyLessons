@@ -1,6 +1,7 @@
 import pytest
 
 from lesson_24.test_data.people_test_data import test_data, expected_data
+from lesson_24.infrastructure.people import People
 
 ids = 'test_id, expect_id'
 
@@ -21,3 +22,8 @@ def create_keys():
 def test_test_multipy_person(people_service, test_id, expect_id):
     response = people_service.get_people(test_id)
     assert response.json() == expect_id
+
+def test_luke_with_fixture(people_service, first_people):
+    response = people_service.get_people("1")
+    actual_people = People(**response.json())
+    assert actual_people == first_people
