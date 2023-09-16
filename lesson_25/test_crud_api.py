@@ -18,3 +18,16 @@ def test_create_an_object():
     response = infrastructure.create_an_object(test_data)
     get_response = infrastructure.get_an_object(response.json()["id"])
     assert get_response.status_code == 200
+
+
+def test_login():
+    response = infrastructure.login()
+    assert type(response.json()['token']) == str
+    assert response.status_code == 200
+
+
+def test_login_and_create_user():
+    token = infrastructure.login().json()['token']
+    response = infrastructure.create_user(token)
+    print(response)
+    assert response.status_code == 201

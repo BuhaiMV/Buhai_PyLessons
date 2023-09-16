@@ -60,6 +60,7 @@ def test_update_an_object():
     assert type(json2["data"]) == dict
     assert type(json2["updatedAt"]) == str
 
+
 def test_delete_an_object():
     test_data = {
         "name": "Apple MacBook Pro 16",
