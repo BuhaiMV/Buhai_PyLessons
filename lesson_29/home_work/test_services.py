@@ -46,10 +46,8 @@ def test_2():
         }
     })
     get_response = endpoint.get_request(put_response['id'])
-    update_data_in_db = dataBase.update_in_db(add_data_to_db.inserted_id, {"data": get_response})
-    get_data_from_db = dataBase.get_data_from_db(update_data_in_db.inserted_id)['data']
-    print(get_response)
-    print(get_data_from_db)
+    dataBase.update_in_db(add_data_to_db.inserted_id, {"data": get_response})
+    get_data_from_db = dataBase.get_data_from_db(add_data_to_db.inserted_id)['data']
     assert get_response == get_data_from_db
 
 
@@ -63,9 +61,10 @@ def test_3():
             "Hard disk size": "1 TB"
         }
     }})
-    post_response = endpoint.post_request(add_data_to_db['data'])
+    get_data_from_db = dataBase.get_data_from_db(add_data_to_db.inserted_id)['data']
+    post_response = endpoint.post_request(get_data_from_db['data'])
 
-    update_data_in_db = dataBase.update_in_db(add_data_to_db.inserted_id, {"data": {
+    dataBase.update_in_db(add_data_to_db.inserted_id, {"data": {
         "name": "Apple MacBook Pro 16",
         "data": {
             "year": 2019,
