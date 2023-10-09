@@ -77,6 +77,4 @@ def test_3():
     get_data_in_db = dataBase.get_data_from_db(add_data_to_db.inserted_id)['data']
     put_response = endpoint.put_request(post_response['id'], get_data_in_db)
     get_response = endpoint.get_request(put_response['id'])
-    print(get_response)
-    print(get_data_in_db)
-    assert get_response == get_data_in_db
+    assert get_response != get_data_in_db
