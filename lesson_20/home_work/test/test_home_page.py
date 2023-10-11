@@ -23,7 +23,8 @@ def test_go_to_payment_and_delivery(home_page):
     home_page.check_text_in_catalog_header('Оплата і доставка')
 
 
-def test_go_to_exchange_and_return(home_page):
+def test_go_to_exchange_and_return(category_page):
+    home_page = category_page.go_to_home_page()
     home_page.go_to_exchange_and_return()
     home_page.check_text_in_catalog_header('Обмін та повернення')
 
